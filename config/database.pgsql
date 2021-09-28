@@ -30,6 +30,15 @@ CREATE TABLE IF NOT EXISTS role_list(
 -- This is not required for VBU, so is commented out by default.
 
 
+CREATE TABLE IF NOT EXISTS user_currency(
+    guild_id BIGINT,
+    user_id BIGINT,
+    balance BIGINT,
+    PRIMARY KEY (guild_id, user_id)
+);
+-- This table stores information about a user's balance.
+
+
 CREATE TABLE IF NOT EXISTS channel_list(
     guild_id BIGINT,
     channel_id BIGINT,

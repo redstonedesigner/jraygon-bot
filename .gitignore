@@ -133,3 +133,4 @@ config/config.toml
 .database.sqlite
 requirements.txt
 local_run_bot.sh
+local_run_bot.bat

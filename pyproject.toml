@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "jraygon-bot"
+version = "0.1.0"
+description = ""
+authors = ["redstonedesigner <redstonedesigner1@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+novus = "^0.0.3"
+voxelbotutils = "^0.8.1"
+
+[tool.poetry.dev-dependencies]
+black = "^21.9-beta.0"
+flake8 = "^3.9.2"
+pylint = "^2.11.1"
+mypy = "^0.910"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -132,3 +132,4 @@ dmypy.json
 config/config.toml
 .database.sqlite
 requirements.txt
+local_run_bot.sh

@@ -63,10 +63,10 @@ class Currency(vbu.Cog):
         :param member: Member to remove amount from
         :param amount: Amount to remove from member
         """
-        result, balance = await currency.remove(
+        success, balance = await currency.remove(
             ctx.guild.id, member.id, amount
         )
-        if not result:
+        if not success:
             msg = (
                 f"Balance of {member.mention} may not go below 0."
                 f" (Would be {balance})"

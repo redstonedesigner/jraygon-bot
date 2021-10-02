@@ -33,6 +33,7 @@ class Currency(vbu.Cog):
             await ctx.send(str(result["balance"]))
 
     @balance.command()
+    @commands.has_any_role("Tavern Owner", "Bar Keep", "Tavern Keep")
     async def add(self, ctx: vbu.Context, member: discord.Member, amount: int):
         """
         Add a specified amount of currency to a user.
@@ -51,6 +52,7 @@ class Currency(vbu.Cog):
             await ctx.send(msg)
 
     @balance.command()
+    @commands.has_any_role("Tavern Owner", "Bar Keep", "Tavern Keep")
     async def remove(
             self, ctx: vbu.Context, member: discord.Member, amount: int
     ):

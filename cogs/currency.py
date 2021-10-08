@@ -4,7 +4,7 @@ Contains currency-based commands.
 import discord
 from discord.ext import commands, vbu
 
-from utils import currency
+from utils import currency, respond
 
 
 class Currency(vbu.Cog):
@@ -20,6 +20,7 @@ class Currency(vbu.Cog):
         """
 
     @balance.command()
+    @commands.defer()
     async def view(self, ctx: vbu.Context, member: discord.Member = None):
         """
         A command to retrieve the balance of yourself or another user.
@@ -27,12 +28,12 @@ class Currency(vbu.Cog):
         member: discord.Member = member or ctx.author
         result = await currency.get(ctx.guild.id, member.id)
 
-        if isinstance(ctx, vbu.SlashContext):
-            await ctx.interaction.response.send_message(str(result["balance"]))
-        else:
-            await ctx.send(str(result["balance"]))
+        msg = f"Current balance of {member.mention}: {result['balance']}"
+
+        await respond(ctx, msg)
 
     @balance.command()
+    @commands.defer()
     @commands.has_any_role("Tavern Owner", "Bar Keep", "Tavern Keep")
     async def add(self, ctx: vbu.Context, member: discord.Member, amount: int):
         """
@@ -46,12 +47,10 @@ class Currency(vbu.Cog):
 
         msg = f"Balance of {member.mention} increased by {amount}."
 
-        if isinstance(ctx, vbu.SlashContext):
-            await ctx.interaction.response.send_message(msg)
-        else:
-            await ctx.send(msg)
+        await respond(ctx, msg)
 
     @balance.command()
+    @commands.defer()
     @commands.has_any_role("Tavern Owner", "Bar Keep", "Tavern Keep")
     async def remove(
             self, ctx: vbu.Context, member: discord.Member, amount: int
@@ -74,10 +73,7 @@ class Currency(vbu.Cog):
         else:
             msg = f"Balance of {member.mention} decreased by {amount}."
 
-        if isinstance(ctx, vbu.SlashContext):
-            await ctx.interaction.response.send_message(msg)
-        else:
-            await ctx.send(msg)
+        await respond(ctx, msg)
 
 
 def setup(bot: vbu.Bot):

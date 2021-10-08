@@ -12,4 +12,4 @@ def format_username(member: discord.Member):
 
 
 def format_date(timestamp: datetime):
-    return timestamp.strftime('%A, %d %B %Y %H:%M:%S')
+    return timestamp.strftime("%A, %d %B %Y %H:%M:%S")

@@ -51,14 +51,14 @@ async def get(guild_id: int, user_id: int):
 async def add(guild_id: int, user_id: int, amount: int):
     row = await _get(guild_id, user_id)
     result = row[0]
-    balance = result['balance'] + amount
+    balance = result["balance"] + amount
     await _save(guild_id, user_id, balance)
 
 
 async def remove(guild_id: int, user_id: int, amount: int):
     row = await _get(guild_id, user_id)
     result = row[0]
-    balance = result['balance'] - amount
+    balance = result["balance"] - amount
     if balance < 0:
         return False, balance
     await _save(guild_id, user_id, balance)

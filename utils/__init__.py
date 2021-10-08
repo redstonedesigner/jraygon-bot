@@ -5,9 +5,9 @@ import discord
 from discord.ext import vbu
 
 
-async def respond(ctx: vbu.Context, msg: str):
+async def respond(ctx: vbu.Context, msg: str, private: bool = False):
     if isinstance(ctx, vbu.SlashContext):
-        await ctx.interaction.followup.send(msg)
+        await ctx.interaction.followup.send(msg, ephemeral=private)
     else:
         await ctx.send(msg)
 

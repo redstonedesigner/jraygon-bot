@@ -48,3 +48,13 @@ CREATE TABLE IF NOT EXISTS channel_list(
 );
 -- A list of channel: value mappings should you need one.
 -- This is not required for VBU, so is commented out by default.
+
+
+CREATE TABLE IF NOT EXISTS user_warnings(
+    warning_id SERIAL PRIMARY KEY,
+    guild_id BIGINT,
+    user_id BIGINT,
+    issuer_id BIGINT,
+    timestamp TEXT,
+    reason TEXT
+);

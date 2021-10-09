@@ -29,6 +29,12 @@ async def _save(guild_id: int, user_id: int, balance: int):
 
 
 async def create(guild_id: int, user_id: int):
+    """
+    Create a new currency record entry.
+    :param guild_id: Guild ID to create record.
+    :param user_id: User ID to create record.
+    :return:
+    """
     session = await database.connect()
     await session.call(
         """INSERT INTO user_currency (guild_id, user_id, balance)
@@ -40,6 +46,12 @@ async def create(guild_id: int, user_id: int):
 
 
 async def get(guild_id: int, user_id: int):
+    """
+    Get a user's balance.
+    :param guild_id: Guild ID to fetch balance from.
+    :param user_id: User ID to fetch balance from.
+    :return:
+    """
     row = await _get(guild_id, user_id)
     if not row:
         await create(guild_id, user_id)
@@ -49,6 +61,13 @@ async def get(guild_id: int, user_id: int):
 
 
 async def add(guild_id: int, user_id: int, amount: int):
+    """
+    Add a given amount to a user's balance.
+    :param guild_id: Guild ID
+    :param user_id: User ID
+    :param amount: Amount to add
+    :return:
+    """
     row = await _get(guild_id, user_id)
     result = row[0]
     balance = result["balance"] + amount
@@ -56,6 +75,13 @@ async def add(guild_id: int, user_id: int, amount: int):
 
 
 async def remove(guild_id: int, user_id: int, amount: int):
+    """
+    Remove specific amount from member's balance.
+    :param guild_id: Guild ID
+    :param user_id: User ID
+    :param amount: Amount to remove
+    :return:
+    """
     row = await _get(guild_id, user_id)
     result = row[0]
     balance = result["balance"] - amount

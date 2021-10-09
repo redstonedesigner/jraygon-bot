@@ -26,7 +26,7 @@ async def issue_notify_user(member: discord.Member, reason: str):
 
 
 async def issue_notify_log(
-        recipient: discord.Member, issuer: discord.Member, reason: str
+    recipient: discord.Member, issuer: discord.Member, reason: str
 ):
     timestamp = datetime.utcnow()
     embed = discord.Embed(

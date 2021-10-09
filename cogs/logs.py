@@ -37,10 +37,10 @@ class Logging(vbu.Cog):
 
     @commands.Cog.listener("on_voice_state_update")
     async def log_voice_channel(
-            self,
-            member: discord.Member,
-            before: discord.VoiceState,
-            after: discord.VoiceState,
+        self,
+        member: discord.Member,
+        before: discord.VoiceState,
+        after: discord.VoiceState,
     ):
         """
         Log user changing voice channel.

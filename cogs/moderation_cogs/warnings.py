@@ -42,9 +42,9 @@ class Warnings(vbu.Cog):
                 issuer = ctx.guild.get_member(warn["issuer_id"])
                 temp_msg = (
                     template.replace("{id}", str(i + 1))
-                        .replace("{reason}", warn["reason"])
-                        .replace("{timestamp}", warn["timestamp"])
-                        .replace("{issuer}", issuer.mention)
+                    .replace("{reason}", warn["reason"])
+                    .replace("{timestamp}", warn["timestamp"])
+                    .replace("{issuer}", issuer.mention)
                 )
                 msg += temp_msg
 
@@ -54,7 +54,7 @@ class Warnings(vbu.Cog):
     @commands.defer()
     @commands.has_any_role("Tavern Keep", "Bar Keep", "Tavern Owner")
     async def issue(
-            self, ctx: vbu.Context, member: discord.Member, reason: str
+        self, ctx: vbu.Context, member: discord.Member, reason: str
     ):
         """
         Issue a warning to a user.

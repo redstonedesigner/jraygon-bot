@@ -8,8 +8,8 @@ import discord
 
 
 async def connect_message(
-        member: discord.Member,
-        channel: Union[discord.VoiceChannel, discord.StageChannel],
+    member: discord.Member,
+    channel: Union[discord.VoiceChannel, discord.StageChannel],
 ):
     embed = discord.Embed(
         title="User joined voice channel.",
@@ -23,8 +23,8 @@ async def connect_message(
 
 
 async def disconnect_message(
-        member: discord.Member,
-        channel: Union[discord.VoiceChannel, discord.StageChannel],
+    member: discord.Member,
+    channel: Union[discord.VoiceChannel, discord.StageChannel],
 ):
     embed = discord.Embed(
         title="User left voice channel.",
@@ -38,9 +38,9 @@ async def disconnect_message(
 
 
 async def change_message(
-        member: discord.Member,
-        before: discord.VoiceState,
-        after: discord.VoiceState,
+    member: discord.Member,
+    before: discord.VoiceState,
+    after: discord.VoiceState,
 ):
     embed = discord.Embed(
         title="User switched voice channel.",

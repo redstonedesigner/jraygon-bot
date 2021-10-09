@@ -53,7 +53,7 @@ class Currency(vbu.Cog):
     @commands.defer()
     @commands.has_any_role("Tavern Owner", "Bar Keep", "Tavern Keep")
     async def remove(
-            self, ctx: vbu.Context, member: discord.Member, amount: int
+        self, ctx: vbu.Context, member: discord.Member, amount: int
     ):
         """
         Remove a specified amount of currency from a user.

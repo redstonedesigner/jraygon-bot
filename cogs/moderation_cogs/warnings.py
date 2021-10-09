@@ -19,7 +19,6 @@ class Warnings(vbu.Cog):
         Placeholder function
         :return:
         """
-        pass
 
     @warnings.command()
     @commands.defer()

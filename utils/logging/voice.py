@@ -11,6 +11,12 @@ async def connect_message(
     member: discord.Member,
     channel: Union[discord.VoiceChannel, discord.StageChannel],
 ):
+    """
+    Format connection log message.
+    :param member: Member that connected
+    :param channel: Channel that member connected to
+    :return:
+    """
     embed = discord.Embed(
         title="User joined voice channel.",
         color=discord.Color.brand_green(),
@@ -26,6 +32,12 @@ async def disconnect_message(
     member: discord.Member,
     channel: Union[discord.VoiceChannel, discord.StageChannel],
 ):
+    """
+    Format user disconnect log message.
+    :param member: Member that disconnected.
+    :param channel: Channel that member disconnected from.
+    :return:
+    """
     embed = discord.Embed(
         title="User left voice channel.",
         color=discord.Color.brand_red(),
@@ -42,6 +54,13 @@ async def change_message(
     before: discord.VoiceState,
     after: discord.VoiceState,
 ):
+    """
+    Format channel switch message.
+    :param member: Member that switched channels.
+    :param before: VoiceState before switch.
+    :param after: VoiceState after switch.
+    :return:
+    """
     embed = discord.Embed(
         title="User switched voice channel.",
         color=discord.Color.orange(),

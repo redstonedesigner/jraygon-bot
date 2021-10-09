@@ -9,6 +9,12 @@ from . import format_date
 
 
 async def issue_notify_user(member: discord.Member, reason: str):
+    """
+    Format DM to user on warning.
+    :param member: Member being warned.
+    :param reason: Reason for warning.
+    :return:
+    """
     message = f"""Hi {member.display_name},
 
     You have been warned in **{member.guild.name}**.
@@ -28,6 +34,13 @@ async def issue_notify_user(member: discord.Member, reason: str):
 async def issue_notify_log(
     recipient: discord.Member, issuer: discord.Member, reason: str
 ):
+    """
+    Format moderation log entry for warning.
+    :param recipient: Member who was warned.
+    :param issuer: Member who issued warning.
+    :param reason: Reason for warning.
+    :return:
+    """
     timestamp = datetime.utcnow()
     embed = discord.Embed(
         title="Warning Issued",
@@ -44,6 +57,12 @@ async def issue_notify_log(
 
 
 async def clear_notify_log(issuer: discord.Member, recipient: discord.Member):
+    """
+    Format clear warnings log message.
+    :param issuer: Member who cleared warnings.
+    :param recipient: Member whose warnings were cleared.
+    :return:
+    """
     timestamp = datetime.utcnow()
     embed = discord.Embed(
         title="Warnings Cleared",
@@ -56,6 +75,11 @@ async def clear_notify_log(issuer: discord.Member, recipient: discord.Member):
 
 
 async def clear_notify_user(member: discord.Member):
+    """
+    Format DM to member.
+    :param member: Member whose warnings were cleared.
+    :return:
+    """
     message = f"""Hi {member.display_name},
 
     All your warnings in **{member.guild.name}** have been cleared."""

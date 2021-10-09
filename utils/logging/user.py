@@ -9,6 +9,11 @@ from utils.logging import format_date, format_username
 
 
 async def join_message(member: discord.Member):
+    """
+    Format user join message.
+    :param member: User that joined.
+    :return:
+    """
     display_name = format_username(member)
     embed = discord.Embed(
         title="A user has joined.",
@@ -23,6 +28,11 @@ async def join_message(member: discord.Member):
 
 
 async def leave_message(member: discord.Member):
+    """
+    Format user leave message.
+    :param member: Member that left the server.
+    :return:
+    """
     display_name = format_username(member)
     embed = discord.Embed(
         title="A user has left.",

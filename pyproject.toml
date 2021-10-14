@@ -12,9 +12,6 @@ novus = {git = "https://github.com/Voxel-Fox-Ltd/Novus.git"}
 
 [tool.poetry.dev-dependencies]
 black = "^21.9-beta.0"
-flake8 = "^3.9.2"
-pylint = "^2.11.1"
-mypy = "^0.910"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

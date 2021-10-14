@@ -1,7 +1,7 @@
 """
 Utility functions related to currency management.
 """
-from utils import database
+from cogs.utils import database
 
 
 async def _get(guild_id: int, lobby_channel_id: int):

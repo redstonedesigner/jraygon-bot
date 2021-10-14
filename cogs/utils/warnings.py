@@ -3,8 +3,8 @@ Utility functions for warning management.
 """
 from datetime import datetime
 
-from utils import database
-from utils.logging import format_date
+from cogs.utils import database
+from cogs.utils.logging import format_date
 
 
 async def get_all(guild_id: int, user_id: int):

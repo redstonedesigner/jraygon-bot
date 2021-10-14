@@ -4,8 +4,8 @@ Contains logging functionality.
 import discord
 from discord.ext import commands, vbu
 
-from utils import get_channel
-from utils.logging import user, voice
+from cogs.utils import get_channel
+from cogs.utils.logging import user, voice
 
 
 class Logging(vbu.Cog):

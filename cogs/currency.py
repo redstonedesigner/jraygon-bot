@@ -4,7 +4,7 @@ Contains currency-based commands.
 import discord
 from discord.ext import commands, vbu
 
-from utils import currency, respond
+from cogs.utils import currency, respond
 
 
 class Currency(vbu.Cog):

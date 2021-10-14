@@ -5,7 +5,7 @@ from datetime import datetime
 
 import discord
 
-from utils.logging import format_date, format_username
+from cogs.utils.logging import format_date, format_username
 
 
 async def join_message(member: discord.Member):

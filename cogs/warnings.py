@@ -4,8 +4,9 @@ Contains warnings cog.
 import discord
 from discord.ext import commands, vbu
 
-from utils import respond, warnings, get_channel
-from utils.logging import warnings as log_warn
+from cogs.utils import respond, get_channel
+from cogs.utils import warnings
+from cogs.utils.logging import warnings as log_warn
 
 
 class Warnings(vbu.Cog):
@@ -121,3 +122,12 @@ class Warnings(vbu.Cog):
         await respond(
             ctx, f"All warnings of {member.mention} cleared.", private=True
         )
+
+
+def setup(bot: vbu.Bot):
+    """
+    Registers command cog to bot.
+    :param bot: Bot object
+    """
+    cog = Warnings(bot)
+    bot.add_cog(cog)

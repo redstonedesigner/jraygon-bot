@@ -4,7 +4,7 @@ Contains currency-based commands.
 import discord
 from discord.ext import commands, vbu
 
-from utils import lobby_vc, respond
+from cogs.utils import lobby_vc, respond
 
 
 class Lobby(vbu.Cog):

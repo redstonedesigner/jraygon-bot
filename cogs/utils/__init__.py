@@ -9,7 +9,6 @@ async def respond(
     ctx: vbu.Context,
     msg: str = None,
     embed: discord.Embed = None,
-    private: bool = False,
     allowed_mentions: discord.AllowedMentions = discord.AllowedMentions.none(),
 ):
     """
@@ -17,14 +16,13 @@ async def respond(
     :param ctx: Context to respond to.
     :param msg: Message to respond with.
     :param embed: Embed to respond with.
-    :param private: Whether the response should be private.
+    :param allowed_mentions: Who the response is allowed to mention.
     :return:
     """
     if isinstance(ctx, vbu.SlashContext):
         await ctx.interaction.followup.send(
             content=msg,
             embed=embed,
-            ephemeral=private,
             allowed_mentions=allowed_mentions,
         )
     else:

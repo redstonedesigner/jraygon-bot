@@ -51,10 +51,25 @@ CREATE TABLE IF NOT EXISTS channel_list(
 
 
 CREATE TABLE IF NOT EXISTS user_warnings(
-    warning_id SERIAL PRIMARY KEY,
     guild_id BIGINT,
     user_id BIGINT,
     issuer_id BIGINT,
     timestamp TEXT,
     reason TEXT
+);
+
+
+CREATE TABLE IF NOT EXISTS lobby_vc(
+    guild_id BIGINT,
+    lobby_channel_id BIGINT,
+    private_channel_id BIGINT,
+    request_channel_id BIGINT,
+    allowed_role_ids TEXT
+);
+
+
+CREATE TABLE IF NOT EXISTS lobby_vc_join_request(
+    lobby_vc_id INT,
+    message_id BIGINT,
+    user_id BIGINT
 );

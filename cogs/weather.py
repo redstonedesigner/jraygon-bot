@@ -19,7 +19,9 @@ class Weather(vbu.Cog):
             timestamp=timestamp,
         )
         embed.add_field(name="Status Code", value=str(status_code))
-        embed.add_field(name="Request URL", value=request_url.replace(" ", "%20"))
+        embed.add_field(
+            name="Request URL", value=request_url.replace(" ", "%20")
+        )
         embed.set_author(
             name="MetaWeather",
             url="https://www.metaweather.com",

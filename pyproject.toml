@@ -9,6 +9,7 @@ python = "^3.9"
 voxelbotutils = "^0.8.1"
 httpx = "^0.19.0"
 novus = {git = "https://github.com/Voxel-Fox-Ltd/Novus.git"}
+pytz = "^2021.3"
 
 [tool.poetry.dev-dependencies]
 black = "^21.9-beta.0"

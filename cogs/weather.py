@@ -83,6 +83,7 @@ class Weather(vbu.Cog):
             icon_url="https://www.metaweather.com/static/img/weather/png/lc.png",
         )
         await respond(ctx, embed=embed)
+        await client.aclose()
 
 
 def setup(bot: vbu.Bot):

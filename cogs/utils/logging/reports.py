@@ -10,19 +10,21 @@ async def message_log(message: discord.Message, reporter: discord.Member):
         title="New Message Report",
         description=f"```{message.content}```",
         colour=discord.Colour.red(),
-        timestamp=datetime.utcnow()
+        timestamp=datetime.utcnow(),
     )
     embed.add_field(name="Message Author", value=message.author.mention)
     embed.add_field(name="Reported By", value=reporter.mention)
     return embed
 
 
-async def user_log(user: discord.Member, reporter: discord.Member, reason: str):
+async def user_log(
+    user: discord.Member, reporter: discord.Member, reason: str
+):
     embed = discord.Embed(
         title="New User Report",
         description=f"```{reason}```",
         colour=discord.Colour.red(),
-        timestamp=datetime.utcnow()
+        timestamp=datetime.utcnow(),
     )
     embed.add_field(name="Reported User", value=user.mention)
     embed.add_field(name="Submitted By", value=reporter.mention)
@@ -43,6 +45,6 @@ Moderation Team
 
 PS: Spam/abuse of the report system will not be tolerated.""",
         color=discord.Color.green(),
-        timestamp=datetime.utcnow()
+        timestamp=datetime.utcnow(),
     )
     return embed

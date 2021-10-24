@@ -68,8 +68,7 @@ async def add(guild_id: int, user_id: int, amount: int):
     :param amount: Amount to add
     :return:
     """
-    row = await _get(guild_id, user_id)
-    result = row[0]
+    result = await get(guild_id, user_id)
     balance = result["balance"] + amount
     await _save(guild_id, user_id, balance)
 
@@ -82,8 +81,7 @@ async def remove(guild_id: int, user_id: int, amount: int):
     :param amount: Amount to remove
     :return:
     """
-    row = await _get(guild_id, user_id)
-    result = row[0]
+    result = await get(guild_id, user_id)
     balance = result["balance"] - amount
     if balance < 0:
         return False, balance

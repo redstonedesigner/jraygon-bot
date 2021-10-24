@@ -67,7 +67,8 @@ class Weather(vbu.Cog):
             value=str(round(weather_data["wind_speed"] * 1.609344)),
         )
         embed.add_field(
-            name="Temperature (°C)", value=str(round(weather_data["the_temp"]))
+            name="Temperature (°C)",
+            value=str(round(weather_data["the_temp"])),
         )
         embed.add_field(
             name="Temperature (°F)",

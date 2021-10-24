@@ -20,7 +20,10 @@ class Reports(vbu.Cog):
     @commands.defer(ephemeral=True)
     @commands.guild_only()
     async def report_user(
-        self, ctx: vbu.Context, user: discord.Member, reason: str = None
+        self,
+        ctx: vbu.Context,
+        user: discord.Member,
+        reason: str = None,
     ):
         channel = await get_channel(ctx.guild, "mod-reports")
         if reason is None:

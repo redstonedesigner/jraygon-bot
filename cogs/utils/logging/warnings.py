@@ -51,7 +51,9 @@ async def issue_notify_log(
     embed.add_field(name="Recipient", value=recipient.mention)
     embed.add_field(name="Reason", value=reason, inline=False)
     embed.add_field(
-        name="Issuing Date", value=format_date(timestamp), inline=False
+        name="Issuing Date",
+        value=format_date(timestamp),
+        inline=False,
     )
     return embed
 

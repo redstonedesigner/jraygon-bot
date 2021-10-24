@@ -153,6 +153,7 @@ async def get_request_by_member_id(member_id: int):
 async def delete_request(member_id: int):
     session = await database.connect()
     await session.call(
-        """DELETE FROM lobby_vc_join_request WHERE user_id = $1""", member_id
+        """DELETE FROM lobby_vc_join_request WHERE user_id = $1""",
+        member_id,
     )
     await database.disconnect(session)

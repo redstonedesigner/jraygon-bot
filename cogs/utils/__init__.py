@@ -27,7 +27,9 @@ async def respond(
         )
     else:
         await ctx.send(
-            content=msg, embed=embed, allowed_mentions=allowed_mentions
+            content=msg,
+            embed=embed,
+            allowed_mentions=allowed_mentions,
         )
 
 

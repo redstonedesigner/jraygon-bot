@@ -60,7 +60,10 @@ class Lobby(vbu.Cog):
     @commands.defer()
     @commands.has_guild_permissions(manage_channels=True)
     async def add_role(
-        self, ctx: vbu.Context, lobby: discord.VoiceChannel, role: discord.Role
+        self,
+        ctx: vbu.Context,
+        lobby: discord.VoiceChannel,
+        role: discord.Role,
     ):
         """
         Add new manager role to lobby channel.
@@ -76,7 +79,10 @@ class Lobby(vbu.Cog):
     @commands.defer()
     @commands.has_guild_permissions(manage_channels=True)
     async def remove_role(
-        self, ctx: vbu.Context, lobby: discord.VoiceChannel, role: discord.Role
+        self,
+        ctx: vbu.Context,
+        lobby: discord.VoiceChannel,
+        role: discord.Role,
     ):
         """
         Remove manager role from lobby channel.

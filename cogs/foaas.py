@@ -41,12 +41,12 @@ RESPONSES = {
     "what": "What the fuck?",
     "xmas": "Merry Fucking Christmas, %s.",
     "yoda": "Fuck you, you must, %s.",
-    "zero": "Zero, that's the number of fucks I give."
+    "zero": "Zero, that's the number of fucks I give.",
 }
 
 
 class FOAAS(vbu.Cog):
-    @commands.group(name='foaas', invoke_without_subcommand=False)
+    @commands.group(name="foaas", invoke_without_subcommand=False)
     async def foaas(self, ctx: vbu.Context):
         """Fock Off as a Service (FOAAS)"""
         if ctx.invoked_subcommand is None:
@@ -76,7 +76,10 @@ Pressing the button below constitutes acceptance of these rules.""",
         )
         components = discord.ui.MessageComponents(
             discord.ui.ActionRow(
-                discord.ui.Button(label="I agree to the rules.", custom_id=f"FOAAS AGREE {ctx.author.id}")
+                discord.ui.Button(
+                    label="I agree to the rules.",
+                    custom_id=f"FOAAS AGREE {ctx.author.id}",
+                )
             )
         )
         await ctx.send(embed=embed, components=components)
@@ -89,18 +92,27 @@ Pressing the button below constitutes acceptance of these rules.""",
             return
         mode, user_id = interaction.component.custom_id.split(" ")[1:]
         if int(user_id) != interaction.user.id:
-            await interaction.response.send_message("This prompt can only be responded to by the user who triggered it!", ephemeral=True)
+            await interaction.response.send_message(
+                "This prompt can only be responded to by the user who triggered it!",
+                ephemeral=True,
+            )
             return
         await interaction.response.defer(ephemeral=True)
         embeds = interaction.message.embeds
         components = discord.ui.MessageComponents(
             discord.ui.ActionRow(
-                discord.ui.Button(label="I agree to the rules.", custom_id=f"FOAAS AGREE {interaction.user.id}", disabled=True)
+                discord.ui.Button(
+                    label="I agree to the rules.",
+                    custom_id=f"FOAAS AGREE {interaction.user.id}",
+                    disabled=True,
+                )
             )
         )
         await interaction.message.edit(embeds=embeds, components=components)
         await foaas.accept(user_id)
-        await interaction.edit_original_message(content="Thank you for accepting the rules of the FOAAS module.")
+        await interaction.edit_original_message(
+            content="Thank you for accepting the rules of the FOAAS module."
+        )
 
     @foaas.command()
     async def exec(self, ctx: vbu.Context, response: str, param: str = None):
@@ -108,14 +120,20 @@ Pressing the button below constitutes acceptance of these rules.""",
             await self.halt_until_agree(ctx)
             return
         if response not in RESPONSES.keys():
-            await ctx.send("Oops... That response doesn't seem to exist in my database.  Please try again.\n\nYou can use `/foaas responses` to see a list of possible responses.", ephemeral=True)
+            await ctx.send(
+                "Oops... That response doesn't seem to exist in my database.  Please try again.\n\nYou can use `/foaas responses` to see a list of possible responses.",
+                ephemeral=True,
+            )
             return
         text = RESPONSES[response] + f" - {ctx.author.display_name}"
         if "%s" in text:
             if param:
                 text = text.replace("%s", param)
             else:
-                await ctx.send("Oops... That response requires a parameter (`param`)!", ephemeral=True)
+                await ctx.send(
+                    "Oops... That response requires a parameter (`param`)!",
+                    ephemeral=True,
+                )
                 return
         await ctx.send(content=text)
 

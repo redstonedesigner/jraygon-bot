@@ -120,7 +120,9 @@ class Warnings(vbu.Cog):
         await log_channel.send(embed=log_msg)
 
         await respond(
-            ctx, f"All warnings of {member.mention} cleared.", private=True
+            ctx,
+            f"All warnings of {member.mention} cleared.",
+            private=True,
         )
 
 

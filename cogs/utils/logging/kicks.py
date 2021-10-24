@@ -34,12 +34,16 @@ async def kick_log(
 ):
     timestamp = datetime.utcnow()
     embed = discord.Embed(
-        title="User Kicked", timestamp=timestamp, color=discord.Color.orange()
+        title="User Kicked",
+        timestamp=timestamp,
+        color=discord.Color.orange(),
     )
     embed.add_field(name="Issuer", value=issuer.mention)
     embed.add_field(name="Recipient", value=kicked.mention)
     embed.add_field(name="Reason", value=reason, inline=False)
     embed.add_field(
-        name="Issuing Date", value=format_date(timestamp), inline=False
+        name="Issuing Date",
+        value=format_date(timestamp),
+        inline=False,
     )
     return embed

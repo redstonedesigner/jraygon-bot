@@ -7,7 +7,7 @@ authors = ["redstonedesigner <redstonedesigner1@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 voxelbotutils = "^0.8.1"
-httpx = "^0.19.0"
+httpx = "^0.23.0"
 novus = {git = "https://github.com/Voxel-Fox-Ltd/Novus.git"}
 pytz = "^2021.3"
 
